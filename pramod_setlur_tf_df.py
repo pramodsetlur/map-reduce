@@ -16,11 +16,12 @@ def mapper(record):
     # value: document contents
     document_id = record[0]
     text = record[1]
-    regex = "\w+$"
+    regex = r'\w+'
     words = re.findall(regex, text)
-
+    #print words
     for w in words:
         #Create a dictionary with {document_id, 1} and pass that as the value
+        #print w
         dict_tf = {document_id: 1}
         mr.emit_intermediate(w, dict_tf)
 
@@ -28,7 +29,7 @@ def reducer(key, dict_values):
     # key: word
     # value: list of occurrence counts
     dict_documents =  {}
-    for document_id, tf in dict_values.items():
+    for document_id, tf in dict_values.iteritems():
         dict_documents.setdefault(document_id, 0)
         old_tf = dict_documents[document_id]
         dict_documents[document_id] = old_tf + 1
