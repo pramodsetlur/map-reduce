@@ -1,5 +1,6 @@
 import MapReduce
 import sys
+import re
 
 """
 Word Count Example in the Simple Python MapReduce Framework
