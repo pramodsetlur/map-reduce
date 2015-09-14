@@ -20,11 +20,14 @@ def mapper(record):
     #Emit element for the A matrix
     for k in range(0,5):
         mr.emit_intermediate((i,k),('A',j,element))
-        print ((i,k),('A',j,element))
+
+    j = record[0]
+    k = record[1]
+    element = record[2]
+
     #Emit element as B matrix
     for i in range(0,5):
         mr.emit_intermediate((i,k),('B',j,element))
-        print ((i,k),('B',j,element))
 
 def reducer(key, dict_values):
     #key: one of the combinations
