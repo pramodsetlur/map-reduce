@@ -22,8 +22,7 @@ class MapReduce:
         for line in data:
             record = json.loads(line)
             mapper(record)
-        for key in self.intermediate:
-            print key, self.intermediate[key]
+        
         # for each key:valuelist in intermediate dictionary, call Reduce task
         for key in self.intermediate:
             reducer(key, self.intermediate[key])
