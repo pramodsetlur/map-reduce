@@ -2,7 +2,7 @@
 Data Mining Assignment #1: This project is based on Map Reduce. 
 
 ###How to execute:
-$ python <filename>.py data/<filename>
+$ python *filename*.py data/*filename*
 
 The WordCount was an example given to us.
 This counts the number of words in the document data/books.json
