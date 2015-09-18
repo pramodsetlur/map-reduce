@@ -26,10 +26,12 @@ The output should look similar to ./output\ samples/itemsets_output.json
 ###3. Matrix Squaring using single phase
 The input to the program is a sparsed matrix. The given matrix is squared with itself. If an element is missing it is considered as 0.
 
-$python pramod_setlur_squared_one data/matrix.json
+$python pramod_setlur_squared_one.py data/matrix.json
 The output should look similar to ./output\ samples/squared_one_output.json
 
 ###4. Matrix Squared using 2 phases
 The input to the matrix is again a sparsed matrix.
 
+$python pramod_setlur_squared_two_one.py data/matrix.json > /tmp/result
+$python pramod_setlur_squared_two_two.py /tmp/result
 The output should look similar to ./output\ samples/squared_two_output.json
