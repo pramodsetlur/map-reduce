@@ -34,9 +34,13 @@ def reducer(key, value_list):
         for j in range (i+1, length_list):
             if (value_list[i][0] != value_list[j][0]): #Check if A and B are different
                 if (value_list[i][0] == 'A'): #If the element is from A then emit (i,k)
-                    mr.emit([value_list[i][1],value_list[j][1],(value_list[i][2]*value_list[j][2])])
+                    row = value_list[i][1]
+                    column = value_list[j][1]
                 else: #If the element is from B then emit (k,i)
-                    mr.emit([value_list[j][1],value_list[i][1],(value_list[i][2]*value_list[j][2])])
+                    row = value_list[j][1]
+                    column = value_list[i][1]
+                multiplied_result = (value_list[i][2]*value_list[j][2])
+                mr.emit([row, column, multiplied_result])
 
 # Do not modify below this line
 # =============================
