@@ -29,12 +29,13 @@ def mapper(record):
 def reducer(key, value_list):
     #key: j
     #dict_values: list of lists. each list is a triplet
-    for i in range (0, len(value_list)-1):
-        for j in range (i+1, len(value_list)):
-            if (value_list[i][0] != value_list[j][0]):
-                if (value_list[i][0] == 'A'):
+    length_list = len(value_list)
+    for i in range (0, length_list-1):
+        for j in range (i+1, length_list):
+            if (value_list[i][0] != value_list[j][0]): #Check if A and B are different
+                if (value_list[i][0] == 'A'): #If the element is from A then emit (i,k)
                     mr.emit([value_list[i][1],value_list[j][1],(value_list[i][2]*value_list[j][2])])
-                else:
+                else: #If the element is from B then emit (k,i)
                     mr.emit([value_list[j][1],value_list[i][1],(value_list[i][2]*value_list[j][2])])
 
 # Do not modify below this line

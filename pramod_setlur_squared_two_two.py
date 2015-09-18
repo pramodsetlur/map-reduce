@@ -21,7 +21,7 @@ def mapper(record):
 
 def reducer(key, value_list):
     #key: j
-    #dict_values: list of lists. each list is a triplet
+    #dict_values: all the values in list needs to be added
     total = 0
     for v in value_list:
       total += v

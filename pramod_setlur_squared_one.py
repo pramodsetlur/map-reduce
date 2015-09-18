@@ -29,8 +29,8 @@ def mapper(record):
         mr.emit_intermediate((i,k),('B',j,element))
 
 def reducer(key, value_list):
-    #key: one of the combinations
-    #dict_values: dictionary of document_id, 1 for each occurance of the string in the document
+    #key: i,k
+    #dict_values: values to be first multiplied and then added
     j_list = []
     j_dictionary = {}
 
